@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="viewport" content="width=device-width, user-scalable=no">
+    <title>Home</title>
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" type="image/x-icon" href="./assets/pwa-assets/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="./assets/pwa-assets/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/pwa-assets/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./assets/pwa-assets/favicon-16x16.png">
+    <link rel="mask-icon" href="./assets/pwa-assets/safari-pinned-tab.svg" color="#fbb13c">
+    <meta name="msapplication-TileColor" content="#fbb13c">
+    <meta name="theme-color" content="#fbb13c">
+  
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles/index.css" type="text/css" media="all" />
+    <link rel="stylesheet" href="styles/home.css" type="text/css" media="all" />
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
+  </head>
+  <body>
+  	<script src="scripts/views/theme.js" type="text/javascript" charset="utf-8"></script>
+    <nav>
+      <!-- Add Button -->
+      <button type="button" class="addBtn mobile" onClick="toggleModal('modaladdtask')"> + </button>
+      <a href="index.html" class="currentnav">
+        <i class="ri-task-line"></i>
+        <h5>Tasks</h5>
+      </a>
+      <a href="calendar.html">
+        <i class="ri-calendar-line"></i>
+        <h5>Calendar</h5>
+      </a>
+      <a href="statistics.html">
+        <i class="ri-bar-chart-2-line"></i>
+        <h5>Statistics</h5>
+      </a>
+      <a href="settings.html">
+        <i class="ri-settings-4-line"></i>
+        <h5>Settings</h5>
+      </a>
+    </nav>
+    <main>
+    	<div class="searchcontainer">
+    		<div class="search">
+		      <input type="text" class="searchTerm" placeholder="Search for?">
+		      <button type="submit" class="searchButton">
+		      	<i class="ri-search-line" class="pointer-none"></i>
+		      </button>
+		    </div>
+		    <div class="desktop">
+		      <!-- Add Button -->
+          <button type="button" class="addTask" onClick="toggleModal('modaladdtask')"> + </button>
+		    </div>
+      </div>
+	    <div class="empty_indicator">
+    		<img src="assets/completed-amico.svg" alt="Completed" id="completedsvg" class="none">
+    		<h3 class="text-center none" id="completedsvgtext">There is no available task. Click the '+' button</h3>
+    		<img src="assets/error-robot-amico.svg" alt="Error" id="errorsvg" class="none">
+    		<h3 class="task_indicator"></h3>
+    		<div class="card_wrapper">
+    		  <!-- Insert task card here  -->
+    		</div>
+    	</div>
+    </main>
+    <!-- Add TaskModal  -->
+    <div class="modal modaladdtask none">
+      <div class="closeBtn">
+        <i class="ri-close-line" onclick="toggleModal('modaladdtask')"></i>
+      </div>
+      <br />
+      <h2 class="text-center">Create Task</h2>
+      <img src="assets/create-amico.svg" alt="Settings"/>
+      <a class="ri-arrow-down-s-line" href="#addTask"></a>
+      <form class="modalform">
+        <label for="task">Task Name</label>
+        <input type="text" name="task" id="task" placeholder="Enter task name" />
+        <h5 class="name_validation"></h5>
+        
+        <label for="category">Category</label>
+        <select id="category" name="category">
+          <option selected disabled>Choose Category</option>
+          <option value="Personal">Personal</option>
+          <option value="Health">Health</option>
+          <option value="Work">Work</option>
+          <option value="Shopping">Shopping</option>
+        </select>
+        <h5 class="category_validation"></h5>
+        
+        <label for="date">Due Date</label>
+        <input type="date" name="date" id="date" placeholder="Enter Due Date" />
+        <h5 class="date_validation"></h5>
+        
+        <label for="time">Due Time</label>
+        <input type="time" name="time" id="time" placeholder="Enter Due Time" />
+        <h5 class="time_validation"></h5>
+      </form>
+      <br />
+      <hr /> 
+      <br />
+      <div class="modalform_buttons">
+        <button type="button" class="submit" id="addTask">Add Task</button>
+        <button type="button" onclick="toggleModal('modaladdtask')">Cancel</button>
+      </div>
+    </div>
+    <!-- Edit TaskModal  -->
+    <div class="modal modaledittask none">
+      <div class="closeBtn">
+        <i class="ri-close-line" onclick="toggleModal('modaledittask')"></i>
+      </div>
+      <br />
+      <h2 class="text-center">Edit Task</h2>
+      <img src="assets/edit.svg" alt="Settings"/>
+      <a class="ri-arrow-down-s-line" href="#editTask"></a>
+      <form class="modalform">
+      	<input type="hidden" id="editid" />
+        <label for="task">Task Name</label>
+        <input type="text" name="task" id="edittask" placeholder="Edit task name" />
+        <h5 class="name_validation"></h5>
+        
+        <label for="category">Category</label>
+        <select id="editcategory" name="category">
+          <option selected disabled>Choose Category</option>
+          <option value="Personal">Personal</option>
+          <option value="Health">Health</option>
+          <option value="Work">Work</option>
+          <option value="Shopping">Shopping</option>
+        </select>
+        <h5 class="category_validation"></h5>
+                  
+        <label for="date">Due Date</label>
+        <input type="date" name="date" id="editdate" placeholder="Edit Due Date" />
+        <h5 class="date_validation"></h5>
+                  
+        <label for="time">Due Time</label>
+        <input type="time" name="time" id="edittime" placeholder="Edit Due Time" />
+        <h5 class="time_validation"></h5>
+      </form>
+      <br />
+			<hr /> 
+			<br />
+      <div class="modalform_buttons">
+        <button type="button" class="submit" id="editTask">Edit Task</button>
+        <button type="button" onclick="toggleModal('modaledittask')">Cancel</button>
+      </div>
+    </div>
+    <!-- Delete TaskModal  -->
+    <div class="modal modaldelete none text-center">
+      <div class="closeBtn">
+        <i class="ri-close-line" onclick="toggleModal('modaldelete')"></i>
+      </div>
+      <br />
+      <h2 class="text-center">Clear task?</h2>
+      <img src="assets/development-amico.svg" alt="Settings"/>
+      <form class="modalform">
+      	<input type="hidden" id="deleteid" />
+      </form>
+      <br />
+    	<hr /> 
+    	<br />
+      <div class="modalform_buttons">
+      	<button type="button" onclick="toggleModal('modaldeleteconfirmation')" class="submit">Clear Task</button>
+        <button type="button" onclick="toggleModal('modaldelete')">Cancel</button>
+      </div>
+    </div>
+    <!-- Modal Delete Confirmation -->
+    <div class="modal modaldeleteconfirmation none text-center">
+      <div class="closeBtn">
+        <i class="ri-close-line" onclick="toggleModal('modaldeleteconfirmation')"></i>
+      </div>
+      <br />
+      <h2>Are you sure?</h2>
+      <img src="assets/questions-amico.svg" alt="Are you sure?"/>
+      <form class="modalform">
+      </form>
+      <br />
+      <hr /> 
+      <br />
+      <div class="modalform_buttons">
+      	<button type="button" class="submit" id="deleteTask">Yes</button>
+        <button type="button" onclick="toggleModal('modaldeleteconfirmation')">Cancel</button>
+      </div>
+    </div>
+		<script src="scripts/model/taskmodel.js" type="module" charset="utf-8"></script>
+ 		<script src="scripts/controller/taskcontroller.js" type="module" charset="utf-8"></script>
+  	<script src="scripts/views/index.js" type="text/javascript" charset="utf-8"></script>
+  	<script src="scripts/views/validation.js" type="module" charset="utf-8"></script>
+    <script>
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('serviceworker.js');
+      }
+    </script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+main {
+	padding: 4vh 3vw 10vh 3vw;
+}
+canvas {
+	margin-bottom: 5vh;
+	border: 1px solid var(--alt-color);
+	padding: 2vh 1vw;
+	border-radius: 10px;
+}
+.monthFilter {
+	display: flex;
+	justify-content: end;
+	gap: 0 1vw;
+}
+input {
+	background-color: var(--alt-color);
+	color: var(--primary-color);
+  width: 30%;
+  padding: 15px 5px;
+  text-align: center;
+  border-radius: 10px;
+}
+@media only screen and (min-width : 768px) {
+  main {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 80%;
+  }
+}
+
+@media only screen and (min-width : 1200px) {
+  main {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 80%;
+  }
+}
+
+@media only screen and (min-width : 1600px) {
+  main {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+  }
+}

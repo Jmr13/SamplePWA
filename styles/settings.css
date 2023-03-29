@@ -1,0 +1,84 @@
+/* Settings Screen */
+main {
+  display: flex;
+  flex-direction: column;
+  gap: 2vh 0;
+  padding: 4vh 3vw 15vh 3vw;
+}
+.switch {
+  position: relative;
+  background-color: var(--alt-color);
+  width: 40%;
+  border-radius: 10px;
+}
+.switch-none {
+  width: 40%;
+}
+.darkmode, .reset {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  background-color: var(--primary-color);
+  width: 50%;
+  padding: 1vh 2vw;
+  gap: 0.5vh 0;
+  color: var(--alt-color);
+  border-radius: 10px;
+  transition: all 0.5s;
+  position: relative;
+}
+.reset {
+  background-color: var(--alt-color);
+  color: var(--primary-color);
+}
+main div h6 {
+  pointer-events: none;
+  user-select: none;
+}
+main div i {
+  pointer-events: none;
+  font-size: 2rem;
+}
+.ri-restart-line , .ri-moon-line, .ri-sun-line{
+  transition: all 0.5s;
+}
+.rotate {
+	transform: rotate(360deg);
+}
+.none {
+  display: none;
+}  
+.slide {
+	transform: translate(19vw, 0);
+}
+.flex {
+  display: flex;
+}
+@media only screen and (min-width : 768px) {
+  main {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 80%;
+  }
+}
+
+@media only screen and (min-width : 1200px) {
+  main {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 80%;
+  }
+}
+
+@media only screen and (min-width : 1600px) {
+  main {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+  }
+}

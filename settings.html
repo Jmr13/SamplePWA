@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="viewport" content="width=device-width, user-scalable=no">
+    <meta name="theme-color" content="#fbb13c">
+    <title>Settings</title>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+  </head>
+  <link rel="stylesheet" href="styles/index.css" type="text/css" media="all" />
+  <link rel="stylesheet" href="styles/settings.css" type="text/css" media="all" />
+  <body>
+  	<script src="scripts/views/theme.js" type="text/javascript" charset="utf-8"></script>
+    <nav>
+      <a href="index.html">
+        <i class="ri-task-line"></i>
+        <h5>Tasks</h5>
+      </a>
+      <a href="calendar.html">
+        <i class="ri-calendar-line"></i>
+        <h5>Calendar</h5>
+      </a>
+      <a href="statistics.html">
+        <i class="ri-bar-chart-2-line"></i>
+        <h5>Statistics</h5>
+      </a>
+      <a href="settings.html" class="currentnav">
+        <i class="ri-settings-4-line"></i>
+        <h5>Settings</h5>
+      </a>
+    </nav>
+    <main>
+      <div class="empty_indicator">
+        <img src="assets/settings-amico.svg" alt="Settings"/>
+      </div>
+      <h3>Preferences</h3>
+      <div class="switch">
+        <div class="darkmode">
+          <i class="ri-moon-line"></i>
+          <i class="ri-sun-line none"></i>
+          <h6 class="icontext pointer-none">Dark</h6>
+        </div>
+      </div>
+      <h3>Reset Tasks</h3>
+      <div class="switch-none">
+        <div class="reset">
+          <i class="ri-restart-line"></i>
+          <h6 class="icontext pointer-none">Reset</h6>
+        </div>
+      </div>
+      <footer>
+        <a href="https://storyset.com/work">Illustrations by <strong>Storyset</strong></a>
+      </footer>
+    </main>
+    <!-- Modal Reset -->
+    <div class="modal modalreset none text-center">
+      <div class="closeBtn">
+        <i class="ri-close-line" onclick="toggleModal('modalreset')"></i>
+      </div>
+      <br />
+      <h2 class="text-center">Clear All task?</h2>
+      <img src="assets/development-amico.svg" alt="Settings"/>
+      <form class="modalform"></form>
+      <br />
+    	<hr /> 
+    	<br />
+      <div class="modalform_buttons">
+      	<button type="button" onclick="toggleModal('modalresetconfirmation')" class="submit">Clear Task</button>
+        <button type="button" onclick="toggleModal('modalreset')">Cancel</button>
+      </div>
+    </div>
+    <!-- Modal Reset Confirmation -->
+    <div class="modal modalresetconfirmation none text-center">
+      <div class="closeBtn">
+        <i class="ri-close-line" onclick="toggleModal('modalresetconfirmation')"></i>
+      </div>
+      <br />
+      <h2 class="text-center">Are you sure?</h2>
+      <img src="assets/questions-amico.svg" alt="Are you sure?"/>
+      <form class="modalform"></form>
+      <br />
+    	<hr /> 
+    	<br />
+      <div class="modalform_buttons">
+        <button type="button" class="submit resetAll">Yes</button>
+        <button type="button" onclick="toggleModal('modalresetconfirmation')">Cancel</button>
+      </div>
+    </div>
+    <script src="scripts/views/index.js" type="text/javascript" charset="utf-8"></script>
+    <script src="scripts/views/settings.js" type="module" charset="utf-8"></script>
+  </body>
+</html>

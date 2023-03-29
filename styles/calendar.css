@@ -1,0 +1,140 @@
+main {
+  padding: 4vh 3vw 15vh 3vw;
+}
+.currentdatetime {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	text-align: center;
+	background-color: var(--secondary-color);
+	padding: 3vh 0;
+	gap: 1vh 0;
+	border-radius: 10px;
+	margin-bottom: 2vh;
+	color: var(--primary-color);
+}
+.month .year{
+  font-size: 1rem;
+  font-weight: bold;
+}
+.date {
+  font-size: 5rem;
+  font-weight: bold;
+}
+.currentMonth {
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+.headeryear {
+  font-size: 1.5rem;
+  width: 100%;
+}
+.header{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 2vh 2vw 2vh 2vw;
+  text-align: center;
+  width: 100%;
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+.header i{
+  cursor: pointer;
+  color: var(--primary-color);
+  text-align: center;
+  font-size: 2rem;
+  user-select: none;
+  border-radius: 10px;
+}
+.header i:hover{
+  transform: scale(1.5, 1.5);
+}
+.calendar {
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  border-left: 2px solid var(--alt-color);
+  border-right: 2px solid var(--alt-color);
+  border-bottom: 2px solid var(--alt-color);
+}
+.calendar ul{
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  text-align: center;
+}
+.calendar li{
+  color: var(--alt-color);
+  width: calc(100% / 7);
+  font-size: 1.07rem;
+}
+.days {
+	padding: 0 0 4vh 0;
+}
+.weeks {
+  padding-top: 2vh;
+  font-weight: bold;
+}
+.calendar .days li{
+  font-weight: 300;
+  cursor: default;
+}
+.calendar .days li{
+  z-index: 1;
+  cursor: pointer;
+  position: relative;
+  margin-top: 3vh;
+}
+.days li::before{
+  position: absolute;
+  content: "";
+  left: 50%;
+  top: 50%;
+  height: 40px;
+  width: 40px;
+  z-index: -1;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+.days li.active{
+  color: var(--primary-color);
+}
+.days li.active::before{
+  background: var(--alt-color);
+}
+.days li.highlight::before {
+  background-color: var(--highlight);
+}
+.notactive:hover::before{
+  background: rgba(220, 220, 220, 0.50);
+}
+@media only screen and (min-width : 768px) {
+  main {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 80%;
+  }
+}
+
+@media only screen and (min-width : 1200px) {
+  main {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 80%;
+  }
+}
+
+@media only screen and (min-width : 1600px) {
+  main {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+  }
+}

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="viewport" content="width=device-width, user-scalable=no">
+    <meta name="theme-color" content="#fbb13c">
+    <title>Calendar</title>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles/index.css" type="text/css" media="all" />
+    <link rel="stylesheet" href="styles/calendar.css" type="text/css" media="all" />
+  </head>
+  <body>
+  	<script src="scripts/views/theme.js" type="text/javascript" charset="utf-8"></script>
+    <nav>
+      <a href="index.html">
+        <i class="ri-task-line"></i>
+        <h5>Tasks</h5>
+      </a>
+      <a href="calendar.html" class="currentnav">
+        <i class="ri-calendar-line"></i>
+        <h5>Calendar</h5>
+      </a>
+      <a href="statistics.html">
+        <i class="ri-bar-chart-2-line"></i>
+        <h5>Statistics</h5>
+      </a>
+      <a href="settings.html">
+        <i class="ri-settings-4-line"></i>
+        <h5>Settings</h5>
+      </a>
+    </nav>
+    <main>
+			<div class="currentdatetime">
+				<h1 class="month"></h1>
+				<h1 class="date"></h1>
+				<h1 class="week"></h1>
+				<h1 class="year"></h1>
+			</div>
+      <div class="header">
+      	<h1 class="headeryear"></h1>
+        <i id="prev" class="ri-arrow-left-circle-line icons"></i>
+        <p class="currentMonth"></p>
+        <i id="next" class="ri-arrow-right-circle-line icons"></i>
+      </div>
+      <div class="calendar">
+        <ul class="weeks">
+          <li>Sun</li>
+          <li>Mon</li>
+          <li>Tue</li>
+          <li>Wed</li>
+          <li>Thu</li>
+          <li>Fri</li>
+          <li>Sat</li>
+        </ul>
+        <ul class="days"></ul>
+      </div>
+    </main>
+    <div class="modal modalinfo none">
+      <div class="closeBtn">
+        <i class="ri-close-line" onclick="toggleModal('modalinfo')"></i>
+      </div>
+      <br />
+      <h2 class="text-center">Task Details</h2>
+      <img src="assets/data.svg" alt="Data"/>
+      <a class="ri-arrow-down-s-line" href="#okay"></a>
+      <form class="modalform">
+        <label for="task">Task Name: </label>
+        <p class="taskName">Hello</p>
+        <label for="category">Category:</label>
+        <p class="taskCategory">Hello</p>
+        <label for="date">Due Date:</label>
+        <p class="taskDuedate">Hello</p>
+        <label for="time">Due Time:</label>
+        <p class="taskDuetime">Hello</p>
+      </form>
+      <br />
+    	<hr /> 
+    	<br />
+      <div class="modalform_buttons">
+        <button type="button" class="submit" id="okay" onclick="toggleModal('modalinfo')">Okay</button>
+        <button type="button" onclick="toggleModal('modalinfo')">Close</button>
+      </div>
+    </div>
+    <script src="scripts/views/index.js" type="text/javascript" charset="utf-8"></script>
+    <script src="scripts/views/calendar.js" type="module" charset="utf-8"></script>
+  </body>
+</html>

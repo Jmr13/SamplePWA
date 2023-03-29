@@ -1,0 +1,260 @@
+ :root {
+	--primary-color: white;
+	--secondary-color: #fbb13c;
+	--alt-color: #1e1302;
+  --highlight: rgba(251,177,60, 0.80);
+}
+.dark {
+	--primary-color: #1e1302;
+	--secondary-color: #fcc061;
+	--alt-color: white;
+  --highlight: rgba(252,192,97,0.80);
+}
+::-moz-selection {
+  color: var(--secondary-color);
+  background: #1e1302;
+}
+::selection {
+  color: var(--secondary-color);
+  background: #1e1302;
+}
+* {
+  padding: 0;
+  margin: 0;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+	background-color: var(--primary-color);
+	color: var(--alt-color);
+  transition: all 0.5s;
+}
+button, a{
+  all: unset;
+}
+hr {
+  border: 1px solid white;
+  background-color: white;
+}
+/* Navigation Bar */
+.currentnav {
+  border-bottom: 1vw solid var(--alt-color);
+  color: var(--alt-color);
+}
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: 0 2vw 1vh 2vw;
+  padding: 1vw 2vw;
+  gap: 0 2vw;
+  background-color: var(--secondary-color);
+  border-radius: 10px;
+  z-index: 10;
+  outline: 2px solid 	var(--alt-color);
+}
+nav a {
+  display: flex;
+  justify-content: center;
+  align-items: space-between;
+  flex-direction: column;
+  padding: 1vh 0;
+  width: 20%;
+  text-align: center;
+  color: var(--primary-color);
+  border-bottom: 1vw solid var(--secondary-color);
+  cursor: pointer;
+}
+nav a i {
+  font-size: 2rem;
+}
+nav a h5 {
+  font-size: 0.75rem;
+}
+currentnav {
+  border-bottom: 1vw solid #1e1302;
+  color: #1e1302;
+}
+/* Modal */
+.modal {
+  display: flex;
+  justify-content: space-between;
+  align-items: space-between;
+  inset: 2vh 5vw 10vh 5vw;
+  position: fixed;
+  flex-direction: column;
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
+  border-radius: 20px;
+  padding: 20px 20px;
+  overflow: auto;
+  scroll-behavior: smooth;
+  z-index: 15;
+  outline: 2px solid 	var(--alt-color);
+}
+.ri-arrow-down-s-line {
+	font-size: 2rem;
+	text-align: center;
+}
+.modal h5 {
+  color: var(--alt-color);
+}
+.modal img {
+  width: 100%;
+}
+.modal input {
+	all: unset;
+	background-color: var(--primary-color);
+	color: var(--alt-color);
+  width: 100%;
+  padding: 15px 0;
+  text-align: center;
+  border-radius: 10px;
+  position: relative;
+}
+.modal input:focus {
+	outline: 2px solid var(--alt-color);
+}
+.modalform {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  gap: 20px 0;
+}
+.modalform label {
+  font-weight: bold;
+}
+.modalform_buttons {
+  display: flex;
+  justify-content: space-between;
+}
+.modalform_buttons button {
+  cursor: pointer;
+}
+.submit {
+  color: var(--primary-color);
+  text-align: center;
+  background-color: var(--alt-color);
+  padding: 2vh 4vw;
+  border-radius: 10px;
+  justify-self: end;
+  font-weight: bold;
+  min-width: 20vw;
+}
+.closeBtn {
+  display: flex;
+  justify-content: end;
+  color: var(--primary-color);
+  cursor: pointer;
+}
+.closeBtn i {
+  font-size: 2rem;
+  background-color: var(--alt-color);
+  padding: 2px;
+  border-radius: 10px;
+}
+.modal select {
+	all: unset;
+  background-color: var(--primary-color);
+  color: var(--alt-color);
+  padding: 15px 0;
+  text-align: center;
+  border-radius: 10px;
+}
+.rotate {
+	transform: rotate(360deg);
+}
+.none {
+  display: none;
+}  
+.slide {
+	transform: translate(20vw, 0);
+}
+.flex {
+  display: flex;
+}
+.text-center {
+	text-align: center;
+}
+.pointer {
+  cursor: pointer;
+}
+.pointer-none {
+	pointer-events: none;
+}
+.alt-color {
+  background-color: var(--alt-color);
+  color: var(--primary-color);
+  border: 1px solid var(--primary-color);
+}
+.empty_indicator {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+.empty_indicator img {
+  align-self: center;
+}
+@media only screen and (min-width : 768px) {
+  nav {
+    justify-content: start;
+    flex-direction: column;
+    gap: 2vh 0;
+    top: 4vh;
+    bottom: 4vh;
+    left: 2vw;
+    width: 10%;
+  }
+  nav a {
+    width: 100%;
+  }
+  .modal {
+    inset: 6vh 15vw 30vh 15vw;
+  }
+  .submit {
+    padding: 1vh 2vw;
+  }
+  .empty_indicator img {
+    width: 100%;
+  }
+}
+
+@media only screen and (min-width : 1200px) {
+  nav {
+    width: 10%;
+  }
+  nav a {
+    width: 100%;
+  }
+  .modal {
+    inset: 12vh 30vw 30vh 30vw;
+  }
+  .submit {
+    padding: 1vh 2vw;
+  }
+  .empty_indicator img {
+    width: 70%;
+  }
+}
+
+@media only screen and (min-width : 1600px) {
+  nav {
+    width: 10%;
+  }
+  nav a {
+    width: 100%;
+  }
+  .submit {
+    padding: 1vh 2vw;
+  }
+  .empty_indicator img {
+    width: 60%;
+  }
+}
