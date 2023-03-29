@@ -70,9 +70,13 @@ self.addEventListener('install', event => {
 // Activation
 self.addEventListener('activate', event => {
   event.waitUntil(
-    caches.keys().then(cacheNames => {
+    caches.keys().then(keyList => {
+      console.log('Cache Names: ' + cacheNames);
       return Promise.all(
-        cacheNames.map(cacheName => {
+        keyList.map(key => {
+          if(key === cacheName){
+            return;
+          }
           return caches.delete(cacheName);
         })
       );
@@ -84,6 +88,7 @@ self.addEventListener('activate', event => {
 self.addEventListener('fetch', event => {
   event.respondWith(
     caches.match(event.request).then(response => {
+      console.log('Response:' + response)
       if (response) {
         return response;
       }
