@@ -60,7 +60,6 @@ var cacheAssets = [
 self.addEventListener('install', event => {
   event.waitUntil(caches.open(cacheName)
     .then(cache => {
-      console.log('Service Worker: Caching Files');
       cache.addAll(cacheAssets);
     })
     .then(() => self.skipWaiting())
@@ -87,7 +86,6 @@ self.addEventListener('activate', event => {
 self.addEventListener('fetch', event => {
   event.respondWith(
     caches.match(event.request).then(response => {
-      console.log('Response:' + response)
       if (response) {
         return response;
       }
