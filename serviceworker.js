@@ -71,7 +71,6 @@ self.addEventListener('install', event => {
 self.addEventListener('activate', event => {
   event.waitUntil(
     caches.keys().then(keyList => {
-      console.log('Cache Names: ' + cacheNames);
       return Promise.all(
         keyList.map(key => {
           if(key === cacheName){
