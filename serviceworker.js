@@ -67,19 +67,20 @@ self.addEventListener('install', event => {
 });
 
 // Activation
-self.addEventListener('activate', event => {
+self.addEventListener("activate", event => {
   event.waitUntil(
-    caches.keys().then(keyList => {
-      return Promise.all(
-        keyList.map(key => {
-          if(key === cacheName){
-            return;
-          }
-          return caches.delete(cacheName);
+  caches.keys().then((keyList) => {
+    return Promise.all(
+      keyList.map((key) => {
+        if (key === cacheName) {
+          return;
+        }
+          return caches.delete(key);
         })
       );
     })
   );
+  self.clients.claim();
 });
 
 // Fetch
