@@ -67,7 +67,7 @@ function generateCharts() {
   
   // Store all month of task
   allTaskMonthCompleted.forEach((taskMonth) => {
-    barLabel.push(getMonth(taskMonth.slice(5,7)));
+    barLabel.push(getMonth(taskMonth.slice(5,7)-1));
   })
   
   // Sort month by their order. This duplicates months.

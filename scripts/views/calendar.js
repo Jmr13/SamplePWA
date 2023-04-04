@@ -120,7 +120,6 @@ function highlightCurrentDate(currentYear, currentMonth) {
 
 async function displayTaskInfo() {
 	const task = await getTask(this.getAttribute('data-id'));
-	console.log(task)
 	document.querySelector('.taskName').textContent = task.name; 
 	document.querySelector('.taskCategory').textContent = task.category; 
   
@@ -132,17 +131,22 @@ async function displayTaskInfo() {
 async function highlightDueDate() {
   const allTask = await getAllTask();
   let filteredDueDate = [];
-
+  var element = null;
   allTask.filter((task) => {
-    if(task.isDone == 0) {
-      if(currentYear == task.dueDate.slice(0, 4) && 
+	if(currentYear == task.dueDate.slice(0, 4) && 
       currentMonth + 1 == task.dueDate.slice(5, 7)) {
-        const element = document.querySelector(`._${task.dueDate.slice(8,10)}`);
-        element.classList.add('highlight');
-        element.setAttribute('data-id', task.id);
-        element.setAttribute('title', task.id);
-        element.addEventListener('click', displayTaskInfo);
-      }
+    	if(task.isDone == 0) {
+			if(task.dueDate.slice(8,10) >= 10) {
+				element = document.querySelector(`._${task.dueDate.slice(8,10)}`);
+			}
+			else {
+				element = document.querySelector(`._${task.dueDate.slice(9,10)}`);
+			}
+			element.classList.add('highlight');
+			element.setAttribute('data-id', task.id);
+			element.setAttribute('title', task.id);
+			element.addEventListener('click', displayTaskInfo);
+      	}
     }
   });
 }
