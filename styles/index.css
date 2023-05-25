@@ -30,7 +30,6 @@ html {
 body {
 	background-color: var(--primary-color);
 	color: var(--alt-color);
-  transition: all 0.5s;
 }
 button, a{
   all: unset;
